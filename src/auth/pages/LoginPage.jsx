@@ -1,9 +1,12 @@
-import { Google } from "@mui/icons-material"
-import { Button, Grid, Link, TextField, Typography } from "@mui/material"
+import { useMemo } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link as RouteLink } from "react-router-dom"
+
+import { Google } from "@mui/icons-material"
+import { Button, Grid, Link, TextField, Typography } from "@mui/material"
+
 import { useForm } from "../../hooks"
-import { checkingAuthentication, startGoogleSignIn } from "../../store/auth/thunks"
+import { checkingAuthentication, startGoogleSignIn, startLoginWithEmailPassword } from "../../store/auth/thunks"
 import { AuthLayout } from "../layout/AuthLayout"
 
 export const LoginPage = () => {
@@ -12,7 +15,7 @@ export const LoginPage = () => {
 
   const dispatch = useDispatch();
 
-  const { email, password, onInputChange } = useForm({
+  const { email, password, onInputChange, formState } = useForm({
     email: 'fernando@calvo', 
     password: '123456'
   });
@@ -21,7 +24,9 @@ export const LoginPage = () => {
 
   const onSubmit = ( event ) => {
     event.preventDefault();
+    // this isn't the dispatch action
     dispatch( checkingAuthentication() );
+    dispatch( startLoginWithEmailPassword( formState ));
   };
 
   const onGoogleSignIn = () => {
