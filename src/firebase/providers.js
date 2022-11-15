@@ -59,18 +59,18 @@ export const loginWithEmailPassword = async({ email, password } ) => {
     try {
 
         const resp = await signInWithEmailAndPassword( FirebaseAuth, email, password );
-        console.log(resp.user)
+        const { uid, photoURL, displayName } = resp.user;
 
         return{
             ok: true,
-            resp
+            uid, email, photoURL, displayName
         }
         
     } catch (error) {
 
         return {
             ok: false,
-            errorMessage2: 'no esta entrando',
+            errorMessage2: error.message,
         }
     }
 

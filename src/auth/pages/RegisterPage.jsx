@@ -15,8 +15,9 @@ const formData = {
 const formValidations = {
   email: [ (value) => value.includes('@'), 'The mail must have a @'],
   password: [ (value) => value.length >= 6, 'The password must have more than 6 letters'],
-  displayName: [ (value) => value.length >=1, 'Name is required']
+  displayName: [ (value) => value.length>=1, 'Name is required']
 }
+
 
 export const RegisterPage = () => {
 

@@ -3,20 +3,21 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link as RouteLink } from "react-router-dom"
 
 import { Google } from "@mui/icons-material"
-import { Button, Grid, Link, TextField, Typography } from "@mui/material"
+import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material"
 
 import { useForm } from "../../hooks"
 import { checkingAuthentication, startGoogleSignIn, startLoginWithEmailPassword } from "../../store/auth/thunks"
 import { AuthLayout } from "../layout/AuthLayout"
 
+
 export const LoginPage = () => {
 
-  const { status } = useSelector( state => state.auth );
+  const { status, errorMessage   } = useSelector( state => state.auth );
 
   const dispatch = useDispatch();
 
   const { email, password, onInputChange, formState } = useForm({
-    email: 'fernando@calvo', 
+    email: 'almudena@almudena.com', 
     password: '123456'
   });
 
@@ -25,7 +26,6 @@ export const LoginPage = () => {
   const onSubmit = ( event ) => {
     event.preventDefault();
     // this isn't the dispatch action
-    dispatch( checkingAuthentication() );
     dispatch( startLoginWithEmailPassword( formState ));
   };
 
@@ -65,6 +65,14 @@ export const LoginPage = () => {
           </Grid>
 
           <Grid container spacing={2} sx={{ mb: 2, mt: 1 }}>
+
+            <Grid 
+              item 
+              xs={12}
+              display={ !!errorMessage ? '': 'none'} >
+              <Alert severity="error">{ errorMessage }</Alert>
+            </Grid>
+
             <Grid item xs={12} sm={6}>
               <Button
                 disabled={ isAuthenticating } 
