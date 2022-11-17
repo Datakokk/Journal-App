@@ -39,7 +39,7 @@ export const startLoginWithEmailPassword = ({ email, password }) => async( dispa
     dispatch( login( result ))
 };
 
-export const startLogout = async( dispatch) => {
+export const startLogout = () => async( dispatch) => {
 
     await logoutFirebas();
 

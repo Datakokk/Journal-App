@@ -8,6 +8,7 @@ https://firebase.google.com/?gclid=EAIaIQobChMIy7eHuPaw-wIVa0WRBR1PKgeQEAAYASAAE
 
 import { loginWithEmailPassword, registerUserWithEmailPassword, singInWithGoogle } from "../../firebase/providers"
 ## FireStore
+ Lite: https://firebase.google.com/docs/firestore/solutions/firestore-lite
 ## Redux Devtools
 ## Thunk
 ## Form
