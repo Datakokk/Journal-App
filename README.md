@@ -15,3 +15,9 @@ import { loginWithEmailPassword, registerUserWithEmailPassword, singInWithGoogle
 ## Google SingIn
 ## Asynchronous actions
 ## Maintain authentication state
+## Sweetalert2.github.io
+    https://sweetalert2.github.io/#download
+
+    import 'sweetalert2/dist/sweetalert2.css'
+## Cloudinary
+    https://cloudinary.com/documentation/image_upload_api_reference    

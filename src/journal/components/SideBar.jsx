@@ -30,7 +30,7 @@ export const SideBar = ({ drawerWidth = 240}) => {
                 {
                     notes.map( note => (
                         <SideBarIten 
-                            key={ note.date }
+                            key={ note.id }
                             { ...note }/>
                     ))
                 }

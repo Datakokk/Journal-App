@@ -1,4 +1,4 @@
-import { Http } from '@mui/icons-material';
+import { Http, Satellite } from '@mui/icons-material';
 import { createSlice } from '@reduxjs/toolkit';
 
 export const journalSlice = createSlice({
@@ -25,15 +25,25 @@ export const journalSlice = createSlice({
         }, 
         setActiveNote: ( state, action ) => {
             state.active = action.payload;
+            state.messageSaved = '';
         },
         setNotes: ( state, action ) => {
             state.notes = action.payload;
         },
         setSaving: ( state ) => {
-
+            state.isSaving = true;
+            state.messageSaved = '';
         }, 
         updateNote: ( state, action ) => {
+            state.isSaving = false;
+            
+            state.notes = state.notes.map( note => 
+                (note.id === action.payload.id)
+                ? action.payload
+                : note
+            );
 
+            state.messageSaved = `${ action.payload.title} has been updated`;
         },
         deleteNodeById: ( state, action ) => {
 
