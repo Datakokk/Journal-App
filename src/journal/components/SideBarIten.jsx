@@ -15,7 +15,6 @@ export const SideBarIten = ({ title='', body, id , date, imagenUrls }) => {
 
     const onClickNote = () => {
         dispatch( setActiveNote({ title, body, id , date, imagenUrls }) );
-        console.log(date)
     }
 
   return (

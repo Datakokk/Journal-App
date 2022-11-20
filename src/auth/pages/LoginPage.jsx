@@ -8,6 +8,7 @@ import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material"
 import { useForm } from "../../hooks"
 import { checkingAuthentication, startGoogleSignIn, startLoginWithEmailPassword } from "../../store/auth/thunks"
 import { AuthLayout } from "../layout/AuthLayout"
+import { clearDeleteMessage } from "../../store/auth"
 
 const formData = {
   email: '', 
@@ -34,8 +35,10 @@ export const LoginPage = () => {
     dispatch( checkingAuthentication() );
     dispatch( startGoogleSignIn() );
   }
-  
 
+  const onDeleteMessage = () => {
+    dispatch( clearDeleteMessage());
+  }
   return (
 
     <AuthLayout title="Login">
@@ -99,7 +102,11 @@ export const LoginPage = () => {
           </Grid>
 
           <Grid container direction='row' justifyContent='end'>
-            <Link component={RouteLink} color='inherit' to='/auth/register'>
+            <Link 
+               onClick={ onDeleteMessage }
+               component={RouteLink} 
+               color='inherit' 
+               to='/auth/register'>
               Create an account
             </Link>
           </Grid>

@@ -5,6 +5,7 @@ import { useForm } from "../../hooks"
 import { useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { startCreatingUserWithEmailPassword } from "../../store/auth/thunks"
+import { clearDeleteMessage } from "../../store/auth"
 
 const formData = {
   email: '',
@@ -40,6 +41,10 @@ export const RegisterPage = () => {
 
     if( !isFormValid ) return;
       dispatch( startCreatingUserWithEmailPassword(formState) )
+  }
+
+  const onDeleteMessage = () => {
+    dispatch( clearDeleteMessage());
   }
    
   return (
@@ -114,7 +119,11 @@ export const RegisterPage = () => {
 
           <Grid container direction='row' justifyContent='end'>
             <Typography sx={{ mr: 1 }}>Do you have an account?</Typography>
-            <Link component={RouteLink} color='inherit' to='/auth/login'>
+            <Link 
+              onClick={ onDeleteMessage }
+              component={RouteLink} 
+              color='inherit' 
+              to='/auth/login'>
              Login
             </Link>
           </Grid>
