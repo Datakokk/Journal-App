@@ -7,8 +7,10 @@ Use of own functions of Material UI
 https://firebase.google.com/?gclid=EAIaIQobChMIy7eHuPaw-wIVa0WRBR1PKgeQEAAYASAAEgK7jPD_BwE&gclsrc=aw.ds
 
 import { loginWithEmailPassword, registerUserWithEmailPassword, singInWithGoogle } from "../../firebase/providers"
+
 ## FireStore
  Lite: https://firebase.google.com/docs/firestore/solutions/firestore-lite
+
 ## Redux Devtools
 ## Thunk
 ## Form
