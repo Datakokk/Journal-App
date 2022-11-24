@@ -21,8 +21,6 @@ import { loginWithEmailPassword, registerUserWithEmailPassword, singInWithGoogle
     https://sweetalert2.github.io/#download
 
     import 'sweetalert2/dist/sweetalert2.css'
-## Cloudinary
-    https://cloudinary.com/documentation/image_upload_api_reference   
 
 ## Jest
 ### 1.- Installation:
@@ -64,4 +62,54 @@ import { loginWithEmailPassword, registerUserWithEmailPassword, singInWithGoogle
     -------------
     // In case you need the FetchAPI implementation
     	import 'whatwg-fetch'; // <-- yarn add whatwg-fetch-> comment
+
+## Cloudinary
+    https://cloudinary.com/documentation/image_upload_api_reference   
+
+### 6.- Test in Cloudinary
+We using Nodejs SDK:
+
+	https://console.cloudinary.com/documentation/node_integration
+
+	1.- yarn add -D cloudinary
+
+	2.- In the test file add: 
+
+		import { v2 as cloudinary } from 'cloudinary'
+
+	If we have the following error:
+	
+		ReferenceError: setImmediate is not defined
+
+    	> 1 | import { v2 as cloudinary } from 'cloudinary'
+
+		In the console add:
+			-$ yarn add -D setimmediate
+
+		then in the jest.setup.js file add the following line:
+
+			import 'setimmediate';
+
     	
+Delete resources:
+
+	https://console.cloudinary.com/documentation/admin_api#delete_resources
+
+	config: 
+		cloudinary.config({
+			cloud_name: '',
+			api_key: '',
+			api_secret: '',
+			secure: true
+		})
+		
+Writing test Redux
+	https://redux.js.org/usage/writing-tests
+
+To test Thunks we need to modify the jest.config.js file:
+
+module.exports = {
+    testEnvironment: 'jest-environment-jsdom',
+    setupFiles: ['./jest.setup.js'], 
+    transformIgnorePatterns: [], // we added this line.
+};
