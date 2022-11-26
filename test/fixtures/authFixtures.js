@@ -31,3 +31,26 @@ export const demoUser = {
     displayName: 'Demo User', 
     photoURL: 'https://demo.jpg',
 }
+
+export const initialStateJournal = {
+    isSaving: false,
+    messageSaved: '',
+    notes: [],
+    active: null,
+}
+
+export const newNote = {
+        id: 'ABC123',
+        title: 'Note 1',
+        body: 'Content note 1',
+        imagenUrls: [] //https://foto.jpg, https://foto.jpg, https://foto3.jpg
+    }
+
+export const notes = [
+    {
+        id: 'ABC123', title: 'Note 1', body: 'Content note 1', imagenUrls: [] //https://foto.jpg, https://foto.jpg, https://foto3.jpg
+    },
+    {
+        id: 'ABC124', title: 'Note 2', body: 'Content note 2', imagenUrls: [] //https://foto.jpg, https://foto.jpg, https://foto3.jpg
+    }
+]
