@@ -113,3 +113,23 @@ module.exports = {
     setupFiles: ['./jest.setup.js'], 
     transformIgnorePatterns: [], // we added this line.
 };
+
+### Environment Variables
+
+1.- We add the following package:
+		yarn add -D dotenv
+2.- Then we will modify the jest.setup.js file
+	
+	require('dotenv').config({ 
+	    path: '.env.test'
+	})
+
+	jest.mock('./src/helpers/getEnvironments', () => ({
+	    getEnvironments: () => ({ ...process.env })
+
+	}))
+ 
+ 
+ src > firebase > config.js 
+
+ add console.log( import.meta.env )

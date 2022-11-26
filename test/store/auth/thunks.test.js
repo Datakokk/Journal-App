@@ -83,7 +83,6 @@ describe('Test on AuthThunks', () => {
 
         const loginData = { ok: false, errorMessage2: 'An error has occurred'};
         const formData = { email: demoUser.email, displayName: demoUser.displayName, password: 123456 };
-        console.log(loginData)
 
         await registerUserWithEmailPassword.mockResolvedValue(loginData);
         await startCreatingUserWithEmailPassword(formData)(dispatch);
