@@ -39,10 +39,27 @@ export const initialStateJournal = {
     active: null,
 }
 
+export const activeStateJournal = {
+    isSaving: false,
+    messageSaved: '',
+    notes: [ 
+        {id: 'ABC123', title: 'Note 1', body: 'Content note 1', imagenUrls: [] /*https://foto.jpg, https://foto.jpg, https://foto3.jpg*/},
+        {id: 'ABC124', title: 'Note 2', body: 'Content note 2', imagenUrls: [] /*https://foto.jpg, https://foto.jpg, https://foto3.jpg*/}
+    ],
+    active: {id: 'ABC123', title: 'Note 1', body: 'Content note 1', imagenUrls: [] },
+}
+
 export const newNote = {
         id: 'ABC123',
         title: 'Note 1',
         body: 'Content note 1',
+        imagenUrls: [] //https://foto.jpg, https://foto.jpg, https://foto3.jpg
+    };
+
+export const updatedNote = {
+        id: 'ABC123',
+        title: 'Note 1',
+        body: 'Content note 1 and more .........',
         imagenUrls: [] //https://foto.jpg, https://foto.jpg, https://foto3.jpg
     }
 
